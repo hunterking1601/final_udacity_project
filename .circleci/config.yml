@@ -128,7 +128,7 @@ jobs:
             aws configure set region $AWS_DEFAULT_REGION
       - kubernetes/install-kubectl
       - aws-eks/update-kubeconfig-with-authenticator:
-          cluster-name: k8s-demo
+          cluster-name: k8s-demo-uda
           install-kubectl: true
       - kubernetes/create-or-update-resource:
           resource-file-path: infrastructure/deployment.yaml
@@ -136,13 +136,13 @@ jobs:
 workflows:
   default:
     jobs:
-      - linting-code
-      - build-image:
-          requires: [linting-code]
-      - deploy-infrastructure:
-          requires: [build-image]
-      - deploy-config:
-          requires: [deploy-infrastructure]
+      # - linting-code
+      # - build-image:
+      #     requires: [linting-code]
+      # - deploy-infrastructure:
+      #     requires: [build-image]
+      - deploy-config
+          # requires: [deploy-infrastructure]
 
 
 
