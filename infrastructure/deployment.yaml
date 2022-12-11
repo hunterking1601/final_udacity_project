@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: 721167874930.dkr.ecr.us-east-1.amazonaws.com/final-project:latest
+        image: 721167874930.dkr.ecr.us-east-1.amazonaws.com/docker_hub:latest
         ports:
           - name: web
             containerPort: 80
